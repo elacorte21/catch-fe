@@ -12,9 +12,12 @@ const SearchComponent = ({
 }: SearchComponentProps) => (
   <InputGroup flex="1" startElement={<LuSearch />} marginBottom={4}>
     <Input
-        placeholder="Search repositories..."
-        value={searchQuery}
-        onChange={(e) => onSearchChange(e.target.value)}
+      id="Search"
+      name="Search"
+      placeholder="Search repositories"
+      type="text"
+      value={searchQuery}
+      onChange={(e) => onSearchChange(e.target.value)}
     />
   </InputGroup>
 )

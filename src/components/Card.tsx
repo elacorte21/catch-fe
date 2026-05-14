@@ -31,15 +31,19 @@ const CardComponent = ({
         <Card.Root flexDirection="row" overflow="hidden" marginBottom={'2'}>
             <Box>
                 {!is_small &&
-                    <Button onClick={() => handlePinRepo(repo.id)}
-                        position={'absolute'} right={0} top={'16px'} rounded={'none'} size={'xs'}>
+                    <Button 
+                        onClick={() => handlePinRepo(repo.id)}
+                        position={'absolute'} right={0} top={'16px'} rounded={'none'} size={'xs'}
+                        role="button"
+                    >
                         <HiBookmark />Pin
                     </Button>
                 }
                 <Card.Body>
                     <Card.Title mb="2">
                         {is_small && <Image display={'inline-block'} width="16px" height="16px" src={icon} alt="Caffe Latte" marginRight={'10px'} />}
-                        <a href={repo.url}>{repo.name}</a> {repo.visibility && <Badge variant="outline">{repo.visibility}</Badge>}
+                        <a href={repo.url} aria-label={repo.name}>{repo.name}</a>
+                        {repo.visibility && <Badge variant="outline" marginLeft={'10px'}>{repo.visibility}</Badge>}
                     </Card.Title>
                     <Card.Description>{repo.description}</Card.Description>
                 </Card.Body>
